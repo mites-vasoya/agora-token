@@ -1,9 +1,18 @@
 const express = require('express');
 const {RtcTokenBuilder, RtcRole} = require('agora-access-token');
+// require('./fetch-setup');
 require("dotenv").config();
 
-const PORT = 8080;
+import fetch from "node-fetch";
+const octokit = new octokit({
+  request : {
+    fetch : fetch
+  }
+})
 
+const router = express.Router();
+
+const PORT = 8080;
 
 const app = express();
 
@@ -52,7 +61,7 @@ const generateAccessToken = (req, resp) => {
   return resp.json({ 'token': token });
 }
 
-app.get('/access_token', nocache, generateAccessToken);
+router.get('/access_token', nocache, generateAccessToken);
 
 app.use("/.netlify/functions/app", router);
 module.exports.handler = serverless(app);
