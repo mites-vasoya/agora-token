@@ -54,6 +54,5 @@ const generateAccessToken = (req, resp) => {
 
 app.get('/access_token', nocache, generateAccessToken);
 
-app.listen(PORT, () => {
-  console.log(`Listening on port: ${PORT}`);
-});
+app.use("/.netlify/functions/app", router);
+module.exports.handler = serverless(app);
