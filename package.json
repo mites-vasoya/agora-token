@@ -12,6 +12,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@octokit/rest": "^21.0.1",
     "agora-access-token": "^2.0.4",
     "dotenv": "^16.4.5",
     "express": "^4.19.2",
@@ -19,5 +20,6 @@
     "netlify-lambda": "^2.0.16",
     "node-fetch": "^3.3.2",
     "serverless-http": "^3.2.0"
-  }
+  },
+  "type": "module"
 }
