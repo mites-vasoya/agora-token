@@ -3,7 +3,7 @@ const {RtcTokenBuilder, RtcRole} = require('agora-access-token');
 // require('./fetch-setup');
 require("dotenv").config();
 
-import fetch from "node-fetch";
+const fetch = require("node-fetch");
 const octokit = new octokit({
   request : {
     fetch : fetch
