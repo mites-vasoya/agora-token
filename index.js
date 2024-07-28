@@ -69,4 +69,12 @@ const generateAccessToken = (req, resp) => {
 router.get('/access_token', nocache, generateAccessToken);
 
 app.use("/.netlify/functions/app", router);
+
+// If running locally or on a platform that requires listening on a port
+if (1) {
+  app.listen(8080, () => {
+    console.log(`Server is running on port 8080`);
+  });
+}
+
 export const handler = serverless(app);
